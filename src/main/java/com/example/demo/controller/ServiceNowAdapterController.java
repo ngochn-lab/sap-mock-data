@@ -54,8 +54,8 @@ public class ServiceNowAdapterController {
 
     @GetMapping("/onboarding_candidate_info")
     public ResponseEntity<ResponseDto> getAllOnboardingCandidateInfo(
-            @RequestParam(name = "$skip", defaultValue = "0") int skip,
-            @RequestParam(name = "$limit", defaultValue = "10") int limit) {
+            @RequestParam(name = "skip", defaultValue = "0") int skip,
+            @RequestParam(name = "limit", defaultValue = "10") int limit) {
         int lim = (limit <= 0) ? 10 : limit;
         long off = Math.max(0, skip);
         Pageable pageable = new OffsetBasedPageRequest(off, lim);
