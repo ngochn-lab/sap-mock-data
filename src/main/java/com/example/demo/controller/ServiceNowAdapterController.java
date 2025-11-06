@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.common.OffsetBasedPageRequest;
+import com.example.demo.common.config.OffsetBasedPageRequest;
 import com.example.demo.dto.EmployeeProfileDto;
 import com.example.demo.dto.OnboardingCandidateInfoDto;
 import com.example.demo.dto.ResponseDto;
