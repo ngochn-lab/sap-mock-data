@@ -61,7 +61,14 @@ public class ServiceNowAdapterController {
         Pageable pageable = new OffsetBasedPageRequest(off, lim);
 
         Page<OnboardingCandidateInfoDto> dtoPage = serviceNowAdapterService.getAllOnboardingCandidateInfo(pageable);
-
+        if (dtoPage.getContent().isEmpty()) {
+            ResponseDto response = new ResponseDto();
+            response.setStatus(1);
+            response.setCode(404);
+            response.setMessage("Empty onboarding candidate info list.");
+            response.setData(null);
+            return ResponseEntity.status(404).body(response);
+        }
         ResponseDto response = new ResponseDto();
         response.setStatus(0);
         response.setCode(200);
